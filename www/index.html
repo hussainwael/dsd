@@ -1,0 +1,150 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Darbeen</title>
+<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+<script src="jquery-1.11.2.min.js"></script>
+<script src="jquery.mobile-1.4.5.min.js"></script>
+<style type="text/css">
+body{font-family:tahoma !important}
+.ui-header{background-color:#455bb8 !important;color:#fff !important;text-shadow:none !important;}
+a{background-color:#455bb8 !important;border:none !important;padding:0px !important;margin-top:25px !important;}
+a:active{background-color:none !important;border:none !important}
+
+.post{padding:10px;border-bottom:1px solid #009;margin:0 !important;cursor:pointer}
+.post-title{font-size:17px;}
+.post-details{font-size:12px;background-color:#6d3599;margin-bottom:0;border-radius:5px;padding:4px;color:#fff;text-shadow:none;}
+.body{padding:0 !important;}
+.comment{padding:10px;color:#000;border-bottom:1px solid#006;border-top:1px solid#006;background-color:#fff;}
+</style>
+<script>
+$( document ).on( "pageinit", "#homepage", function() {
+    $( document ).on( "swipeleft swiperight", "#homepage", function( e ) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+            if ( e.type === "swiperight"  ) {
+                $( "#lef3t-panel" ).panel( "open" );
+            }
+        }
+    });
+});
+
+$( document ).on( "pageinit", "#post", function() {
+    $( document ).on( "swipeleft swiperight", "#homepage", function( e ) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+            if ( e.type === "swiperight"  ) {
+                $( "#lef1t-panel" ).panel( "open" );
+            }
+        }
+    });
+});
+
+
+
+</script>
+</head>
+
+<body>
+<div data-role="page" id="homepage">
+<div data-role="panel" id="lef2t-panel"> 
+    <h2>Panel Header</h2>
+    <p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
+  </div> 
+  <div data-role="header" style="padding-top:30px;" class="ui-header">
+  
+ 
+ <a id="left-click" data-shadow="false" href="#lef2t-panel"  ><img src="ew.png" width="44" height="44"  alt=""/></a>
+<a  data-shadow="false" href="#pcreate" ><img src="post.png" width="48" height="48"  alt=""/></a>
+    <h1><img src="s.png" width="111" height="24"  alt=""/></h1>
+  </div>
+  <div data-role="content" class="body">
+  
+    <div class="post" onClick="document.location='#post'">
+      <p class="post-title">
+      Content of a test question.
+      </p>
+      <span class="post-details">
+      3 minutes ago ▬ 2 reply
+      </span>
+    </div>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+ 
+</div>
+
+<div data-role="page" id="pcreate">
+      <div data-role="header" class="ui-header" style="padding-top:37px !important;">
+        <h1>Post New</h1>
+        <button onClick="document.location='#homepage'" data-icon="back" data-iconshadow="false" style="margin-top:35px !important;">Back</button>
+      </div>
+      <div data-role="content">
+        <div data-role="fieldcontain">
+        <form>
+          <label for="textinput"></label>
+          <input type="text" name="textinput" id="textinput" value="" placeholder="اكتب هنا"  />
+          <input type="button" value="Post" />
+          
+          </form>
+        </div>
+      
+      
+      </div>
+     
+    </div>
+<div data-role="page" id="post">
+<div data-role="panel" id="lef1t-panel"> 
+    <h2>Panel Header</h2>
+    <p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
+  </div> 
+  <div data-role="header">
+    <div data-role="header" style="padding-top:30px; !important;">
+ 
+ <a data-shadow="false" href="#lef1t-panel"  ><img src="ew.png" width="44" height="44"  alt=""/></a>
+<a  data-shadow="false" href="#pcreate" ><img src="post.png" width="48" height="48"  alt=""/></a>
+    <h1><img src="s.png" width="111" height="24"  alt=""/></h1>
+  </div>
+  <div data-role="content" style="background-color:#FFF !important;color:#000;padding-bottom:0;font-weight:100;">
+   <button onClick="document.location='#homepage'" data-icon="back" data-iconshadow="false" style="margin-top:35px !important;">Back</button>
+  <p>Question title and details of it</p>
+  <p style="padding:5px;margin-bottom:0;color:#999;font-size:13px;">3 Minutes ago </p>
+  
+  
+   </div>
+  
+  <div data-role="footer">
+    <h4>Comments</h4>
+    <input type="text" name="textinput" id="textinput" value="" placeholder="اكتب هنا"  />
+     <div class="comment" style="font-weight:100;">
+     Comment of this question
+     <p style="font-size:14px;font-weight:100;">
+     4 minutes ago
+     </p>
+     </div>
+     
+     
+     
+  </div>
+  
+  
+  
+  
+  
+</div>
+  
+
+
+
+</body>
+</html>
